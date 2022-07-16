@@ -15,19 +15,9 @@ public class DiceRotator : MonoBehaviour
     void Start()
     {
         Debug.Assert(dice != null);
-        //dice.facesNormals = GetComponent<MeshFilter>().mesh.normals.Distinct().ToArray();
-
-        //transform.LookAt(camera.transform.position);
         RotateToFace(1, false);
     }
 
-    void Update()
-    {
-        if (!rotating && Input.GetMouseButtonDown(1))
-        {
-            RotateToFace(1);
-        }
-    }
     public void RotateToFace(int faceId, bool animate = true)
     {
 
@@ -35,7 +25,6 @@ public class DiceRotator : MonoBehaviour
             return;
 
         Vector3 face = dice.facesNormals[faceId - 1];
-        //Vector3 face = new Vector3(-1, 0, 0);
         Vector3 cameraPosition = camera.transform.position;
 
         Vector3 normalPosition = transform.TransformPoint(face);
@@ -68,6 +57,16 @@ public class DiceRotator : MonoBehaviour
         {
             oldConstraints = character.constraints;
             character.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            Vector2 pos = character.position;
+            if (Mathf.Abs(pos.x) > Mathf.Abs(pos.y))
+            {
+                character.position = new Vector2(character.position.x - (1.9f * character.position.x), character.position.y);
+            }
+            else
+            {
+                character.position = new Vector2(character.position.x, character.position.y - (1.9f * character.position.y));
+            }
         }
         Quaternion startRotation = transform.rotation;
         Quaternion endRotation = Quaternion.AngleAxis(angle, axis) * startRotation;
@@ -80,12 +79,14 @@ public class DiceRotator : MonoBehaviour
         rotating = false;
 
         if (character != null)
+        {
             character.constraints = oldConstraints;
+        }
     }
 
     private void OnDrawGizmos()
     {
-        var normals = dice.facesNormals; // GetComponent<MeshFilter>().sharedMesh.normals;
+        var normals = dice.facesNormals;
 
         for (var i = 0; i < normals.Length; i++)
         {
