@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5811925696688809831}
   - component: {fileID: 8480453680728499351}
   - component: {fileID: -3995092597149989538}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackDice3
   m_TagString: projectile
   m_Icon: {fileID: 0}
