@@ -51,7 +51,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
     private void Aim()
     {
-        var mousePosition = Utils.GetMousePosition();
+        var mousePosition = Utils.GetMousePosition(transform.position);
         var aimDirection = (mousePosition - transform.position).normalized;
         var angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         _aimTransform.eulerAngles = new Vector3(0, 0, angle);

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
+    public PlayerStatsModifier playerStatsModifier;
 
     private float horizontalMovement = 0;
     private float verticalMovement = 0;
@@ -18,23 +19,20 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        _animator = this.GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalMovement = Input.GetAxisRaw("Horizontal") * speed;
+        horizontalMovement = Input.GetAxisRaw("Horizontal") * (speed * playerStatsModifier.movementSpeed);
 
         if (Input.GetButtonDown("Jump"))
             jump = true;
-
-
     }
-
     private void FixedUpdate()
     {
-        controller.Move(horizontalMovement * Time.deltaTime, false, jump);
+        controller.Move(horizontalMovement * Time.deltaTime, false, jump, playerStatsModifier);
         Animate();
         jump = false;
     }
