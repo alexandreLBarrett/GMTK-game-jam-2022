@@ -366,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 4
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &103450547
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 5
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &142226540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -996,7 +996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 1
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &261635831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1777,7 +1777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 5
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &459660580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2374,7 +2374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 3
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &518717194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2448,7 +2448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 6
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &520330847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2522,7 +2522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 3
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &526253754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2653,7 +2653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 5
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &727633207
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2727,7 +2727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 5
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &729727690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2801,7 +2801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 6
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &746255838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2875,7 +2875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 4
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &780419987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2949,7 +2949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 3
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &798592011
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3341,7 +3341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 1
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &930540687
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3415,7 +3415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 2
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &964132913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3489,7 +3489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 2
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &1023224408
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3563,7 +3563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 4
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &1130491143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3861,7 +3861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 3
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &1195836474
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4016,7 +4016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 4
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &1208856674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4130,7 +4130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 2
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &1278004497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4351,7 +4351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 1
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &1582053579
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4573,7 +4573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 2
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &1726049089
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4759,7 +4759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 6
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &1850890315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4945,7 +4945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 1
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &1942809175
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5019,7 +5019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 534694663}
   diceSide: 6
-  isOpened: 1
+  isOpened: 0
 --- !u!61 &2004162670
 BoxCollider2D:
   m_ObjectHideFlags: 0
