@@ -20,7 +20,6 @@ public class DiceRotator : MonoBehaviour
 
     public void RotateToFace(int faceId, bool animate = true)
     {
-
         if (rotating)
             return;
 
@@ -42,10 +41,24 @@ public class DiceRotator : MonoBehaviour
         if (axisOfRotation == Vector3.zero)
             axisOfRotation = Vector3.ProjectOnPlane(Vector3.up, angleBetweenThisAndNormal);
 
+        DeloadAllFacesBut(faceId);
+
         if (animate)
             StartCoroutine(Rotate(axisOfRotation, angle, animationTime));
         else
             transform.Rotate(axisOfRotation, angle);
+    }
+
+    private void DeloadAllFacesBut(int faceId)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var child = transform.GetChild(i);
+            if (child.name.StartsWith("Map_"))
+            {
+                child.gameObject.SetActive(child.name.Equals("Map_" + faceId));
+            }
+        }
     }
 
     private IEnumerator Rotate(Vector3 axis, float angle, float duration)
@@ -57,6 +70,7 @@ public class DiceRotator : MonoBehaviour
         {
             oldConstraints = character.constraints;
             character.constraints = RigidbodyConstraints2D.FreezeAll;
+            character.GetComponent<SpriteRenderer>().enabled = false;
 
             Vector2 pos = character.position;
             if (Mathf.Abs(pos.x) > Mathf.Abs(pos.y))
@@ -81,6 +95,7 @@ public class DiceRotator : MonoBehaviour
         if (character != null)
         {
             character.constraints = oldConstraints;
+            character.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 

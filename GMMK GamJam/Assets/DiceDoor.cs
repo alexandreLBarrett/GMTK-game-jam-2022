@@ -10,7 +10,7 @@ public class DiceDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (isOpened)
+        if (isOpened || true)
             dice.RotateToFace(diceSide);
     }
 }

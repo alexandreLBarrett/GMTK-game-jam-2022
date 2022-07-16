@@ -8,6 +8,6 @@ public class Utils : MonoBehaviour
     public static Vector3 GetMousePosition()
     {
         var worldCamera = Camera.main;
-        return worldCamera.ScreenToWorldPoint(Input.mousePosition);
+        return worldCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -worldCamera.transform.position.z));
     }
 }
