@@ -5431,6 +5431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653140676319}
   - component: {fileID: 534694663}
+  - component: {fileID: 919132148682142822}
   m_Layer: 0
   m_Name: LP-D6
   m_TagString: Untagged
@@ -5438,6 +5439,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148682142822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148682142821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cd0868675766840960522571eda96c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1151388029146521479
 Transform:
   m_ObjectHideFlags: 0
