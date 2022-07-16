@@ -12,10 +12,19 @@ public class DiceRotator : MonoBehaviour
     public DiceMap dice;
     public Rigidbody2D character;
 
+    DoorManager doorManager = new DoorManager();
+
     void Start()
     {
-        Debug.Assert(dice != null);
         RotateToFace(1, false);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+            doorManager.OpenRandomClosedDoor();
+        }
     }
 
     public void RotateToFace(int faceId, bool animate = true)
@@ -42,6 +51,7 @@ public class DiceRotator : MonoBehaviour
             axisOfRotation = Vector3.ProjectOnPlane(Vector3.up, angleBetweenThisAndNormal);
 
         DeloadAllFacesBut(faceId);
+        doorManager.EnterDoor(transform.Find("Map_" + faceId).gameObject);
 
         if (animate)
             StartCoroutine(Rotate(axisOfRotation, angle, animationTime));
