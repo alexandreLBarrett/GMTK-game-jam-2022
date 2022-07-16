@@ -7,11 +7,6 @@ using UnityEngine;
 
 public class PlayerStatsModifier : MonoBehaviour
 {
-    public void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     [Range(.1f, 2f)]
     public float fireRate = 1f; // bullets per seconds
     [Range(.1f, 2f)]
