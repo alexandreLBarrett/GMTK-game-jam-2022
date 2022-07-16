@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerAimWeapon : MonoBehaviour
@@ -8,21 +9,20 @@ public class PlayerAimWeapon : MonoBehaviour
     // Update is called once per frame
     private Transform _aimTransform;
     private Animator _animator;
-    private AnimatorOverrideController _aoc; 
-    
+    private AnimatorOverrideController _aoc;
+
     public AnimationClip[] idleAnimationClips;
     public AnimationClip[] moveAnimationClips;
-
-    public Rigidbody2D testProjectile;
-
-    private Rigidbody2D bulletInstance;
     
+    public GameObject currentWeapon;
+    public float projectileSpawnOffset = 1f;
+
     public event EventHandler<OnShootEventArgs> OnShoot;
+
     public class OnShootEventArgs : EventArgs
     {
         public Vector3 gunEndpointPosition;
         public Vector3 shootPosition;
-        
     }
 
     private void Awake()
@@ -32,7 +32,7 @@ public class PlayerAimWeapon : MonoBehaviour
     }
 
     // protected AnimationClipOverrides 
-    
+
     private void Start()
     {
         _aoc = new AnimatorOverrideController(_animator.runtimeAnimatorController);
@@ -41,6 +41,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
     void Update()
     {
+        Shoot();
     }
 
     private void FixedUpdate()
@@ -61,10 +62,10 @@ public class PlayerAimWeapon : MonoBehaviour
 
     public void OverrideAnimations()
     {
-        var rot = (int)((_aimTransform.eulerAngles.z + 360) % 360 / 7.5);
+        var rotation = (int)((_aimTransform.eulerAngles.z + 360) % 360 / 7.5);
 
-        _aoc["Idle1"] = idleAnimationClips[rot % 48];
-        _aoc["Move 1"] = moveAnimationClips[rot % 48];
+        _aoc["Idle1"] = idleAnimationClips[rotation % 48];
+        _aoc["Move 1"] = moveAnimationClips[rotation % 48];
     }
 
     private void Shoot()
@@ -76,13 +77,11 @@ public class PlayerAimWeapon : MonoBehaviour
             //     gunEndpointPosition = transform.position,
             //     shootPosition = Utils.GetMousePosition(),
             // });
-            
-            bulletInstance = 
-                Instantiate(testProjectile, transform.position, transform.rotation) 
-                    as Rigidbody2D;
 
-            bulletInstance.AddForce(transform.forward * 10f, ForceMode2D.Force);
-            
+            var bulletInstance = Instantiate(currentWeapon, transform.position + transform.right * projectileSpawnOffset, transform.rotation);
+            Debug.Log(bulletInstance.transform.position);
+            var rb = bulletInstance.GetComponent<Rigidbody2D>();
+            rb.AddForce(transform.right * bulletInstance.GetComponent<WeaponBehaviour>()._weaponForce, ForceMode2D.Impulse);
         }
     }
 }

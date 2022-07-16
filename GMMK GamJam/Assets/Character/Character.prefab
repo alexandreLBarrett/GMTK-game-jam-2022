@@ -1241,7 +1241,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 5b7c35d536348be499f80693c0ee98fc, type: 2}
   - {fileID: 7400000, guid: d957971d698ac6545b9a117d6cacdcd0, type: 2}
   - {fileID: 7400000, guid: dddf0422b2db0a74b8e4fb31e6f44ab8, type: 2}
-  testProjectile: {fileID: -4811497868927972128, guid: 456c3fb96b76fe147a25e6d462a5d971, type: 3}
+  currentWeapon: {fileID: 8414705499861659384, guid: 456c3fb96b76fe147a25e6d462a5d971, type: 3}
 --- !u!1 &6727394175516665179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,7 +1704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
