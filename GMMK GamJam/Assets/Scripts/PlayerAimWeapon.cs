@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class PlayerAimWeapon : MonoBehaviour
     private Transform _aimTransform;
     private Animator _animator;
     private AnimatorOverrideController _aoc;
+    private PlayerStatsModifier _modifiers;
+    [FormerlySerializedAs("isAvailable")] public bool weaponIsAvailable = true;
 
     public AnimationClip[] idleAnimationClips;
     public AnimationClip[] moveAnimationClips;
     
     public GameObject currentWeapon;
     public float projectileSpawnOffset = 1f;
+    private bool _canBeFired = true;
 
     public event EventHandler<OnShootEventArgs> OnShoot;
 
@@ -23,12 +27,14 @@ public class PlayerAimWeapon : MonoBehaviour
     {
         public Vector3 gunEndpointPosition;
         public Vector3 shootPosition;
+        public Quaternion gunEndpointRotation;
     }
 
     private void Awake()
     {
         _aimTransform = this.GetComponent<Transform>();
         _animator = this.GetComponentInParent<Animator>();
+        _modifiers = GetComponentInParent<PlayerStatsModifier>();
     }
 
     // protected AnimationClipOverrides 
@@ -70,18 +76,34 @@ public class PlayerAimWeapon : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && weaponIsAvailable)
         {
             // OnShoot?.Invoke(this, new OnShootEventArgs
             // {
-            //     gunEndpointPosition = transform.position,
-            //     shootPosition = Utils.GetMousePosition(),
+            //     gunEndpointPosition = transform.position + transform.right * projectileSpawnOffset,
+            //     gunEndpointRotation = transform.rotation,
             // });
-
-            var bulletInstance = Instantiate(currentWeapon, transform.position + transform.right * projectileSpawnOffset, transform.rotation);
-            Debug.Log(bulletInstance.transform.position);
-            var rb = bulletInstance.GetComponent<Rigidbody2D>();
-            rb.AddForce(transform.right * bulletInstance.GetComponent<WeaponBehaviour>()._weaponForce, ForceMode2D.Impulse);
+            
+            var shootEndpoint = transform.position + transform.right * projectileSpawnOffset;
+            Quaternion shootRotation = transform.rotation;
+            
+            // var bulletInstance = Instantiate(currentWeapon, transform.position + transform.right * projectileSpawnOffset, transform.rotation);
+            // bulletInstance.transform.localScale *= _modifiers.bulletSize;
+            // Debug.Log(transform.right * projectileSpawnOffset);
+            //
+            
+            StartCoroutine(StartCooldown());
+            currentWeapon.GetComponent<DefaultWeaponBehaviour>().ShootBehaviour(shootEndpoint, shootRotation);
         }
+        else
+            return;
     }
+    
+    public IEnumerator StartCooldown()
+    {
+        weaponIsAvailable = false;
+        yield return new WaitForSeconds(currentWeapon.GetComponent<DefaultWeaponBehaviour>().weaponCooldown);
+        weaponIsAvailable = true;
+    }
+
 }
