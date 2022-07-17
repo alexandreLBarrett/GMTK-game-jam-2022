@@ -43,18 +43,7 @@ public class PlayerStatsValueWatcher : MonoBehaviour
             }
             else
             {
-                switch (_playerAimWeapon.selectedBehaviour.bulletType.name)
-                {
-                    case "PistolShot":
-                        watcher.text.text = "Pistol";
-                        break;
-                    case "SniperShot":
-                        watcher.text.text = "Sniper";
-                        break;
-                    case "BombShot":
-                        watcher.text.text = "Blast Gun";
-                        break;
-                }
+                watcher.text.text = _playerAimWeapon.selectedBehaviour.label;
             }
         }
     }

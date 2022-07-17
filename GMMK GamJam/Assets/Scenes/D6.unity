@@ -897,7 +897,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161929690}
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0062}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3565,7 +3565,7 @@ MonoBehaviour:
   character: {fileID: 1222768725}
   playerStatsModifier: {fileID: 1222768733}
   aimWeapon: {fileID: 520712198}
-  sideCleared: {fileID: 0}
+  sideCleared: {fileID: 544267784}
 --- !u!1 &544267782
 GameObject:
   m_ObjectHideFlags: 0
@@ -8344,6 +8344,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4202795380165941373, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: label
+      value: Blast
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202795380165941373, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: shotCount
       value: 1
       objectReference: {fileID: 0}
@@ -8351,6 +8355,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 46834973}
+    - target: {fileID: 6595428718732767696, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: m_text
+      value: 'Gun Rolled:'
+      objectReference: {fileID: 0}
     - target: {fileID: 6930628233011344279, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: m_Name
       value: StatsCanvas
@@ -8358,6 +8366,14 @@ PrefabInstance:
     - target: {fileID: 7164159904504013398, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: shotCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794880340510990714, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -289.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794880340510990714, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
