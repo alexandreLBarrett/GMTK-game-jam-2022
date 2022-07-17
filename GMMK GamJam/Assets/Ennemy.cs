@@ -22,6 +22,7 @@ public class Ennemy : MonoBehaviour
 
     private void OnEnable()
     {
+        
     }
 
     private void EnnemyDeath(object sender, Utils.OnStuffDeathEventArgs e)
@@ -31,28 +32,9 @@ public class Ennemy : MonoBehaviour
 
     private void Update()
     {
-        transform.right = destination.right;
-        transform.position = new Vector3(transform.position.x, transform.position.y, destination.position.z);
         GetComponentInChildren<Animator>().SetFloat("move", _path.hasPath ? 1 : 0);
-
-        GetComponentInChildren<SpriteRenderer>().flipX = destination.transform.position.x > transform.position.x;
+        GetComponentInChildren<SpriteRenderer>().flipY = destination.transform.position.x > transform.position.x;
     }
-
-    private void LateUpdate()
-    {
-        if (transform.right != destination.right)
-            transform.right = destination.right;
-        transform.position = new Vector3(transform.position.x, transform.position.y, destination.position.z);
-    }
-
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if (collision.gameObject.TryGetComponent<HpBar>(out HpBar hpBar))
-    //     {
-    //         if (hpBar.friendly)
-    //             hpBar.TakeDamage(damageDone); 
-    //     }
-    // }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

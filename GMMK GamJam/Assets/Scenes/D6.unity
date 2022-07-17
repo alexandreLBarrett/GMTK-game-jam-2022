@@ -388,22 +388,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1222768732}
-    - target: {fileID: 2334029446839118941, guid: d7d80a1a7e08e5b4aaee7f66098d1c8f, type: 3}
-      propertyPath: alwaysDrawGizmos
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2334029446839118941, guid: d7d80a1a7e08e5b4aaee7f66098d1c8f, type: 3}
-      propertyPath: constrainInsideGraph
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2334029446839118941, guid: d7d80a1a7e08e5b4aaee7f66098d1c8f, type: 3}
-      propertyPath: pickNextWaypointDist
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2334029446839118941, guid: d7d80a1a7e08e5b4aaee7f66098d1c8f, type: 3}
-      propertyPath: autoRepath.maximumInterval
-      value: 1.82
-      objectReference: {fileID: 0}
     - target: {fileID: 2334029446839119778, guid: d7d80a1a7e08e5b4aaee7f66098d1c8f, type: 3}
       propertyPath: m_Name
       value: BasicFlyingennemy (2)
@@ -10115,6 +10099,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 696212270}
     m_Modifications:
+    - target: {fileID: 2334029445161389863, guid: d7d80a1a7e08e5b4aaee7f66098d1c8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 2334029446839118940, guid: d7d80a1a7e08e5b4aaee7f66098d1c8f, type: 3}
       propertyPath: target
       value: 

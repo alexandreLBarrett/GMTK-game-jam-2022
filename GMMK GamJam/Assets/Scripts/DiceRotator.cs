@@ -122,6 +122,12 @@ public class DiceRotator : MonoBehaviour
         }
 
         AstarPath.active.Scan();
+
+        foreach (var ennemy in GetComponentsInChildren<Ennemy>())
+        {
+            ennemy.transform.rotation = Quaternion.Euler(Vector3.zero);
+            ennemy.transform.position = new Vector3(ennemy.transform.position.x, ennemy.transform.position.y, character.transform.position.z);
+        }
     }
 
     private void OnDrawGizmos()
