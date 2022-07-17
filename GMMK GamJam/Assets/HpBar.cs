@@ -1,15 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class HpBar : MonoBehaviour
 {
-    public float health = 1f;
+    public float health = 1.0f;
     public float totalHP = 100f;
     public Image image;
     public bool friendly = false;
+    public event EventHandler<Utils.OnStuffDeathEventArgs> OnDeath;
+        
     void Update()
     {
         health = Mathf.Clamp01(health);
@@ -30,16 +34,11 @@ public class HpBar : MonoBehaviour
         health -= damage / totalHP;
 
         if (health < 0)
-            GameOver();
+            OnDeath?.Invoke(this, new Utils.OnStuffDeathEventArgs());
     }
 
     public void Heal(int pts)
     {
         health += pts / totalHP;
-    }
-
-    void GameOver()
-    {
-        SceneManager.LoadScene("GameOver");
     }
 }

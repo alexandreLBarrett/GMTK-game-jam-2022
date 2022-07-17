@@ -82,6 +82,12 @@ public class PlayerAimWeapon : MonoBehaviour
 
     private void Shoot()
     {
+        // OnShoot?.Invoke(this, new OnShootEventArgs
+        // {
+        //     gunEndpointPosition = transform.position + transform.right * projectileSpawnOffset,
+        //     gunEndpointRotation = transform.rotation,
+        // });
+        
         if (Input.GetButton("Fire1"))
         {
             var shootEndpoint = transform.position + transform.right * projectileSpawnOffset;
