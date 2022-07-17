@@ -897,7 +897,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161929690}
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0062}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3409,7 +3409,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4049543394921422467, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
   m_PrefabInstance: {fileID: 1199127388}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1093064539}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18ceae1aa9f4749478e56af156ece28c, type: 3}
@@ -3565,7 +3565,7 @@ MonoBehaviour:
   character: {fileID: 1222768725}
   playerStatsModifier: {fileID: 1222768733}
   aimWeapon: {fileID: 520712198}
-  sideCleared: {fileID: 0}
+  sideCleared: {fileID: 544267784}
 --- !u!1 &544267782
 GameObject:
   m_ObjectHideFlags: 0
@@ -7347,6 +7347,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1093064539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6332312462390948713, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+  m_PrefabInstance: {fileID: 1199127388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1093064541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093064539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee7ee1969423a240a332e7a7efa35e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletType: {fileID: 8414705499861659384, guid: c9d84acd7011d2648b68c97579ac8f46, type: 3}
+  FireRate: 60
+  Damage: 25
+  BulletSize: 3
+  BulletSpeed: 0.5
+  angleBetween: 30
+  shotCount: 3
+  label: Shotgun
 --- !u!1 &1107598025
 GameObject:
   m_ObjectHideFlags: 0
@@ -8222,6 +8247,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1416720901921986472, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: shotCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3377544374900382051, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: m_Name
       value: Character
@@ -8314,13 +8343,37 @@ PrefabInstance:
       propertyPath: bulletBehaviors.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4202795380165941373, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: label
+      value: Blast
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202795380165941373, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: shotCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4482695672811270231, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 46834973}
+    - target: {fileID: 6595428718732767696, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: m_text
+      value: 'Gun Rolled:'
+      objectReference: {fileID: 0}
     - target: {fileID: 6930628233011344279, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: m_Name
       value: StatsCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164159904504013398, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: shotCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794880340510990714, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -289.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794880340510990714, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87576dea4badd7045acca2f580ca2195, type: 3}

@@ -11,6 +11,9 @@ public class WeaponBehaviour : MonoBehaviour, IShootable
     public float BulletSize;
     public float BulletSpeed;
 
+    public float angleBetween;
+    public float shotCount = 1;
+
     public string label;
 
     protected bool weaponIsAvailable = true;
@@ -20,9 +23,16 @@ public class WeaponBehaviour : MonoBehaviour, IShootable
         if (!weaponIsAvailable)
             return;
 
-        var bulletInstance = Instantiate(bulletType, position, rotation);
-        var bullet = bulletInstance.AddComponent<Bullet>();
-        bullet.ApplyBehaviour(this, modifiers);
+        var coneWidth = shotCount * angleBetween;
+        rotation.eulerAngles = new Vector3(rotation.eulerAngles.x, rotation.eulerAngles.y, rotation.eulerAngles.z - coneWidth/2);
+
+        for (int i = 0; i < shotCount; ++i)
+        {
+            rotation.eulerAngles = new Vector3(rotation.eulerAngles.x, rotation.eulerAngles.y, rotation.eulerAngles.z + angleBetween);
+            var bulletInstance = Instantiate(bulletType, position, rotation);
+            var bullet = bulletInstance.AddComponent<Bullet>();
+            bullet.ApplyBehaviour(this, modifiers);
+        }
 
         StartCoroutine(StartCooldown(modifiers));
     }
