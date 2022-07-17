@@ -1763,11 +1763,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &490436638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3377544374900382051, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
-  m_PrefabInstance: {fileID: 1199127388}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &491686251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3937,10 +3932,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 3377544374900382052, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3377544374900382054, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4013,10 +4004,6 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3377544374900382057, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3377544374900382058, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: speed
       value: 20
@@ -4037,22 +4024,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 46834973}
-    - target: {fileID: 4819060148699215367, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
-      propertyPath: modifiers
-      value: 
-      objectReference: {fileID: 1222768733}
-    - target: {fileID: 4819060148699215367, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
-      propertyPath: Watchers.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4819060148699215367, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
-      propertyPath: Watchers.Array.data[5].text
-      value: 
-      objectReference: {fileID: 1743939656}
-    - target: {fileID: 4819060148699215367, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
-      propertyPath: Watchers.Array.data[5].propertyName
-      value: jumpHeight
-      objectReference: {fileID: 0}
     - target: {fileID: 6930628233011344279, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: m_Name
       value: StatsCanvas
@@ -4196,40 +4167,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3377544374900382054, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
   m_PrefabInstance: {fileID: 1199127388}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1222768733
+--- !u!114 &1222768733 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8182876226755501556, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
+  m_PrefabInstance: {fileID: 1199127388}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490436638}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77115bc7ae5ad5348a822e93085718dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
-  damage: 1
-  bulletSize: 1
-  bulletSpeed: 1
-  movementSpeed: 1
-  jumpHeight: 1
---- !u!114 &1222768734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490436638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0927b54fbfe42be45b539504cb4a1ceb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  totalHP: 100
-  image: {fileID: 2086672214}
-  friendly: 1
 --- !u!1 &1267209139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4922,17 +4870,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1743939656 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8389425188365726031, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
-  m_PrefabInstance: {fileID: 1199127388}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1805765622
 GameObject:
   m_ObjectHideFlags: 0
