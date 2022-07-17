@@ -13,6 +13,7 @@ public class DiceRotator : MonoBehaviour
     public Rigidbody2D character;
     public PlayerStatsModifier playerStatsModifier;
     public PlayerAimWeapon aimWeapon;
+    public SideCleared sideCleared;
 
     DoorManager doorManager;
 
@@ -82,6 +83,7 @@ public class DiceRotator : MonoBehaviour
         playerStatsModifier.RandomizeStats();
         doorManager.OpenRandomClosedDoor();
         aimWeapon.RandomizeWeapon();
+        sideCleared.Show();
     }
 
     private IEnumerator Rotate(Vector3 axis, float angle, float duration)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Pathfinding;
 
 public class DoorManager
@@ -79,6 +80,6 @@ public class DoorManager
 
     void DiceHasBeenCleared()
     {
-        Debug.Log("Cleared Dice");
+        SceneManager.LoadScene("EndScreen");
     }
 }

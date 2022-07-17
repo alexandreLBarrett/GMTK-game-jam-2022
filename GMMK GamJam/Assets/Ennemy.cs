@@ -5,7 +5,7 @@ using UnityEngine;
 using Pathfinding;
 using Unity.VisualScripting;
 
-public class Ennemy : MonoBehaviour
+public class Ennemy : Objective
 {
     Transform destination;
     private AIPath _path;
@@ -13,20 +13,22 @@ public class Ennemy : MonoBehaviour
     public int damageDone = 20;
     [SerializeField] private HpBar _hpBar;
 
-    private void Start()
+    protected new void Start()
     {
+        base.Start();
         destination = GetComponent<AIDestinationSetter>().target;
         _path = GetComponent<AIPath>();
         _hpBar.OnDeath += EnnemyDeath;
     }
 
-    private void OnEnable()
+    protected new void OnEnable()
     {
-        
+        base.OnEnable();
     }
 
     private void EnnemyDeath(object sender, Utils.OnStuffDeathEventArgs e)
     {
+        Completed();
         Destroy(gameObject);
     }
 
@@ -38,7 +40,7 @@ public class Ennemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GameObject().TryGetComponent<HpBar>(out HpBar hpBar)) ;
+        if (other.GameObject().TryGetComponent<HpBar>(out HpBar hpBar))
         {
             if (hpBar.friendly && hpBar._canBeHurt)
             {
