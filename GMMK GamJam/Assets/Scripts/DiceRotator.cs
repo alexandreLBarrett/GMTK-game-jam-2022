@@ -11,19 +11,24 @@ public class DiceRotator : MonoBehaviour
     public new Camera camera;
     public DiceMap dice;
     public Rigidbody2D character;
+    public PlayerStatsModifier playerStatsModifier;
+    public PlayerAimWeapon aimWeapon;
 
-    DoorManager doorManager = new DoorManager();
+    DoorManager doorManager;
 
     void Start()
     {
+        doorManager = new DoorManager(dice.facesNormals.Length);
         RotateToFace(1, false);
+        doorManager.OpenRandomClosedDoor();
+        aimWeapon = FindObjectOfType<PlayerAimWeapon>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown("r"))
         {
-            doorManager.OpenRandomClosedDoor();
+            RoomCleared();
         }
     }
 
@@ -71,6 +76,14 @@ public class DiceRotator : MonoBehaviour
         }
     }
 
+    public void RoomCleared()
+    {
+        Debug.Log("Room cleared");
+        playerStatsModifier.RandomizeStats();
+        doorManager.OpenRandomClosedDoor();
+        aimWeapon.RandomizeWeapon();
+    }
+
     private IEnumerator Rotate(Vector3 axis, float angle, float duration)
     {
         rotating = true;
@@ -107,6 +120,8 @@ public class DiceRotator : MonoBehaviour
             character.constraints = oldConstraints;
             character.GetComponent<SpriteRenderer>().enabled = true;
         }
+
+        AstarPath.active.Scan();
     }
 
     private void OnDrawGizmos()

@@ -6,7 +6,24 @@ public class DiceDoor : MonoBehaviour
 {
     public DiceRotator dice;
     public int diceSide;
-    public bool isOpened;
+    bool isOpened;
+    public bool Opened
+    {
+        get { return isOpened; }
+        set {
+            isOpened = value;
+            UpdateColor();
+        }
+    }
+
+    bool isLocked;
+    public bool Locked { 
+        get { return isLocked; } 
+        set { 
+            isLocked = value; 
+            UpdateColor(); 
+        } 
+    }
 
     SpriteRenderer spriteRenderer;
     public void Start()
@@ -16,18 +33,17 @@ public class DiceDoor : MonoBehaviour
 
     public void OnEnable()
     {
-        if (isOpened)
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.color = Color.green;
-        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        UpdateColor();
     }
 
-    public void Open()
+    public void UpdateColor()
     {
-        isOpened = true;
-        if (spriteRenderer != null)
+        spriteRenderer.color = Color.white;
+        if (isOpened)
             spriteRenderer.color = Color.green;
+        if (isOpened && isLocked)
+            spriteRenderer.color = Color.yellow;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,7 +51,7 @@ public class DiceDoor : MonoBehaviour
         if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
             return;
 
-        if (isOpened)
+        if (isOpened && !isLocked)
             dice.RotateToFace(diceSide);
     }
 }

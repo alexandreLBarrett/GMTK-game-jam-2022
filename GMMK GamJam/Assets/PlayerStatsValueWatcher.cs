@@ -23,7 +23,7 @@ public class PlayerStatsValueWatcher : MonoBehaviour
         {
             var protertyInfo = (FieldInfo)modifiers.GetType().GetMember(watcher.propertyName)[0];
             float value = (float)protertyInfo.GetValue(modifiers);
-            watcher.text.text = "x" + value.ToString();
+            watcher.text.text = "x" + value.ToString("F2");
 
             if (value > 1)
             {

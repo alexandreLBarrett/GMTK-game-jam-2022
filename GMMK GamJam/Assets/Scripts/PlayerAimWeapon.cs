@@ -38,6 +38,11 @@ public class PlayerAimWeapon : MonoBehaviour
         _animator = this.GetComponentInParent<Animator>();
         _modifiers = GetComponentInParent<PlayerStatsModifier>();
 
+        RandomizeWeapon();
+    }
+
+    public void RandomizeWeapon()
+    {
         var behaviors = GetComponents<WeaponBehaviour>();
         var index = UnityEngine.Random.Range(0, behaviors.Length);
         selectedBehaviour = behaviors[index];
