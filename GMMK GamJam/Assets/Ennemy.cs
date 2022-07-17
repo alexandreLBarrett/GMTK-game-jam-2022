@@ -31,11 +31,18 @@ public class Ennemy : MonoBehaviour
 
     private void Update()
     {
-        transform.up = destination.up;
+        transform.right = destination.right;
         transform.position = new Vector3(transform.position.x, transform.position.y, destination.position.z);
         GetComponentInChildren<Animator>().SetFloat("move", _path.hasPath ? 1 : 0);
 
-        GetComponent<SpriteRenderer>().flipX = destination.transform.position.x < transform.position.x;
+        GetComponentInChildren<SpriteRenderer>().flipX = destination.transform.position.x > transform.position.x;
+    }
+
+    private void LateUpdate()
+    {
+        if (transform.right != destination.right)
+            transform.right = destination.right;
+        transform.position = new Vector3(transform.position.x, transform.position.y, destination.position.z);
     }
 
     // private void OnCollisionEnter2D(Collision2D collision)
@@ -47,12 +54,15 @@ public class Ennemy : MonoBehaviour
     //     }
     // }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GameObject().TryGetComponent<HpBar>(out HpBar hpBar)) ;
         {
-            if (hpBar.friendly)
+            if (hpBar.friendly && hpBar._canBeHurt)
+            {
                 hpBar.TakeDamage(damageDone);
+                hpBar.StartCooldownCorutine();
+            }
         }
     }
 }

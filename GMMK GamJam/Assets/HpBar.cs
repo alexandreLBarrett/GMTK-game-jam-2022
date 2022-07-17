@@ -13,7 +13,9 @@ public class HpBar : MonoBehaviour
     public Image image;
     public bool friendly = false;
     public event EventHandler<Utils.OnStuffDeathEventArgs> OnDeath;
-        
+    [DoNotSerialize]public bool _canBeHurt = true;
+    public float _damageCooldown = 2f;
+
     void Update()
     {
         health = Mathf.Clamp01(health);
@@ -40,5 +42,14 @@ public class HpBar : MonoBehaviour
     public void Heal(int pts)
     {
         health += pts / totalHP;
+    }
+
+    public void StartCooldownCorutine() => StartCoroutine(StartHurtCooldown()); 
+    
+    private IEnumerator StartHurtCooldown()
+    {
+        _canBeHurt = false;
+        yield return new WaitForSeconds(_damageCooldown);
+        _canBeHurt = true;
     }
 }
