@@ -788,6 +788,8 @@ MonoBehaviour:
   totalHP: 100
   image: {fileID: 6301080036383844859}
   friendly: 1
+  _canBeHurt: 1
+  _damageCooldown: 1.5
 --- !u!114 &8182876226755501556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,7 +807,6 @@ MonoBehaviour:
   bulletSize: 1
   bulletSpeed: 1
   movementSpeed: 1
-  jumpHeight: 1
 --- !u!1 &3528743405759783350
 GameObject:
   m_ObjectHideFlags: 0

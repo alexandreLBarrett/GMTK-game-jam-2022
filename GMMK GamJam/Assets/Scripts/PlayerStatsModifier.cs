@@ -20,8 +20,6 @@ public class PlayerStatsModifier : MonoBehaviour
     public float bulletSpeed = 1f;
     [Range(.1f, 2f)]
     public float movementSpeed = 1f;
-    [Range(.75f, 1.5f)]
-    public float jumpHeight = 1f;
 
     public void RandomizeStats()
     {
@@ -37,8 +35,6 @@ public class PlayerStatsModifier : MonoBehaviour
         Limit(ref bulletSpeed);
         movementSpeed += GetRandomModifier();
         Limit(ref movementSpeed);
-        jumpHeight += GetRandomModifier();
-        Limit(ref jumpHeight);
     }
 
     void Limit(ref float value)
