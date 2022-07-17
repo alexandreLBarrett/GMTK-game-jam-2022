@@ -4162,8 +4162,8 @@ PrefabInstance:
       value: HPCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4049543394921422467, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
-      propertyPath: projectileSpawnOffset
-      value: 0.2
+      propertyPath: bulletBehaviors.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4482695672811270231, guid: 87576dea4badd7045acca2f580ca2195, type: 3}
       propertyPath: m_Camera
@@ -4361,6 +4361,7 @@ MonoBehaviour:
   health: 1
   totalHP: 100
   image: {fileID: 2086672214}
+  friendly: 1
 --- !u!1 &1267209139
 GameObject:
   m_ObjectHideFlags: 0

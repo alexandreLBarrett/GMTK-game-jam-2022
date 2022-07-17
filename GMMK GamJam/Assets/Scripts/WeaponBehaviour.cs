@@ -30,7 +30,7 @@ public class WeaponBehaviour : MonoBehaviour, IShootable
     public IEnumerator StartCooldown(PlayerStatsModifier modifiers)
     {
         weaponIsAvailable = false;
-        yield return new WaitForSeconds(FireRate * modifiers.fireRate);
+        yield return new WaitForSeconds(1/(FireRate * modifiers.fireRate) * 60);
         weaponIsAvailable = true;
     }
 }

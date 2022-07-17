@@ -1288,6 +1288,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4052482087341774347}
   - component: {fileID: 4049543394921422467}
+  - component: {fileID: 1416720901921986472}
+  - component: {fileID: 4202795380165941373}
+  - component: {fileID: 7164159904504013398}
   m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
@@ -1322,6 +1325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ceae1aa9f4749478e56af156ece28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIsAvailable: 1
+  selectedBehaviour: {fileID: 1416720901921986472}
   idleAnimationClips:
   - {fileID: 7400000, guid: fa33f5becafe0ba4eb99ed480e6be0e9, type: 2}
   - {fileID: 7400000, guid: 2b0b6944df5cb58408f7c00d16138cc9, type: 2}
@@ -1421,7 +1426,61 @@ MonoBehaviour:
   - {fileID: 7400000, guid: d957971d698ac6545b9a117d6cacdcd0, type: 2}
   - {fileID: 7400000, guid: dddf0422b2db0a74b8e4fb31e6f44ab8, type: 2}
   currentWeapon: {fileID: 8414705499861659384, guid: 456c3fb96b76fe147a25e6d462a5d971, type: 3}
-  projectileSpawnOffset: 1
+  projectileSpawnOffset: 0.2
+--- !u!114 &1416720901921986472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6332312462390948713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee7ee1969423a240a332e7a7efa35e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletType: {fileID: 8414705499861659384, guid: 456c3fb96b76fe147a25e6d462a5d971, type: 3}
+  FireRate: 500
+  Damage: 5
+  BulletSize: 1.5
+  BulletSpeed: 2
+  label: Simple
+--- !u!114 &4202795380165941373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6332312462390948713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee7ee1969423a240a332e7a7efa35e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletType: {fileID: 8414705499861659384, guid: c9d84acd7011d2648b68c97579ac8f46, type: 3}
+  FireRate: 60
+  Damage: 35
+  BulletSize: 5
+  BulletSpeed: 1
+  label: Chonk
+--- !u!114 &7164159904504013398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6332312462390948713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee7ee1969423a240a332e7a7efa35e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletType: {fileID: 8414705499861659384, guid: 662fbc4f8f549c1459b9c21b8879c5ce, type: 3}
+  FireRate: 50
+  Damage: 150
+  BulletSize: 1
+  BulletSpeed: 15
+  label: Sniper
 --- !u!1 &6727394175516665179
 GameObject:
   m_ObjectHideFlags: 0
