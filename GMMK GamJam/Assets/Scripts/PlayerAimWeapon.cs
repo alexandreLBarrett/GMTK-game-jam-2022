@@ -14,6 +14,8 @@ public class PlayerAimWeapon : MonoBehaviour
     private PlayerStatsModifier _modifiers;
     [FormerlySerializedAs("isAvailable")] public bool weaponIsAvailable = true;
 
+    public WeaponBehaviour selectedBehaviour;
+
     public AnimationClip[] idleAnimationClips;
     public AnimationClip[] moveAnimationClips;
     
@@ -35,6 +37,10 @@ public class PlayerAimWeapon : MonoBehaviour
         _aimTransform = this.GetComponent<Transform>();
         _animator = this.GetComponentInParent<Animator>();
         _modifiers = GetComponentInParent<PlayerStatsModifier>();
+
+        var behaviors = GetComponents<WeaponBehaviour>();
+        var index = UnityEngine.Random.Range(0, behaviors.Length);
+        selectedBehaviour = behaviors[index];
     }
 
     // protected AnimationClipOverrides 
@@ -76,34 +82,14 @@ public class PlayerAimWeapon : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetButton("Fire1") && weaponIsAvailable)
+        if (Input.GetButton("Fire1"))
         {
-            // OnShoot?.Invoke(this, new OnShootEventArgs
-            // {
-            //     gunEndpointPosition = transform.position + transform.right * projectileSpawnOffset,
-            //     gunEndpointRotation = transform.rotation,
-            // });
-            
             var shootEndpoint = transform.position + transform.right * projectileSpawnOffset;
             Quaternion shootRotation = transform.rotation;
-            
-            // var bulletInstance = Instantiate(currentWeapon, transform.position + transform.right * projectileSpawnOffset, transform.rotation);
-            // bulletInstance.transform.localScale *= _modifiers.bulletSize;
-            // Debug.Log(transform.right * projectileSpawnOffset);
-            //
-            
-            StartCoroutine(StartCooldown());
-            currentWeapon.GetComponent<DefaultWeaponBehaviour>().ShootBehaviour(shootEndpoint, shootRotation);
+            selectedBehaviour.Shoot(shootEndpoint, shootRotation, _modifiers);
         }
-        else
-            return;
     }
     
-    public IEnumerator StartCooldown()
-    {
-        weaponIsAvailable = false;
-        yield return new WaitForSeconds(currentWeapon.GetComponent<DefaultWeaponBehaviour>().weaponCooldown);
-        weaponIsAvailable = true;
-    }
+    
 
 }

@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 1359803899699384248}
   - component: {fileID: 6312032534912849721}
   - component: {fileID: 7903388162591428293}
-  - component: {fileID: 5811925696688809831}
   - component: {fileID: 8480453680728499351}
-  - component: {fileID: -3995092597149989538}
+  - component: {fileID: -2417685324769573484}
   m_Layer: 7
-  m_Name: AttackDice3
+  m_Name: PistolShot
   m_TagString: projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,27 +183,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!50 &5811925696688809831
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8414705499861659384}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!70 &8480453680728499351
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -221,19 +199,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00000022308336, y: 0.0036413525}
   m_Size: {x: 0.33304474, y: 0.17282909}
   m_Direction: 1
---- !u!114 &-3995092597149989538
-MonoBehaviour:
+--- !u!50 &-2417685324769573484
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8414705499861659384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee7ee1969423a240a332e7a7efa35e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSpeed: 10
-  weaponStrenght: 0
-  weaponBounciness: 0
-  weaponCooldown: 0.3
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

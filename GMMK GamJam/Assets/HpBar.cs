@@ -9,7 +9,7 @@ public class HpBar : MonoBehaviour
     public float health = 1f;
     public float totalHP = 100f;
     public Image image;
-
+    public bool friendly = false;
     void Update()
     {
         health = Mathf.Clamp01(health);
