@@ -48,8 +48,6 @@ public class PlayerAimWeapon : MonoBehaviour
         selectedBehaviour = behaviors[index];
     }
 
-    // protected AnimationClipOverrides 
-
     private void Start()
     {
         _aoc = new AnimatorOverrideController(_animator.runtimeAnimatorController);

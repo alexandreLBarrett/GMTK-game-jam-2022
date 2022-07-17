@@ -8,11 +8,11 @@ public class DiceManager : MonoBehaviour
 {
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
     }
 
     public void LoadDice(int diceId)
     {
+        DontDestroyOnLoad(gameObject);
         string sceneFilename = "Assets/Scenes/D" + diceId + ".unity";
 
         if (System.IO.File.Exists(sceneFilename))

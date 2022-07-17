@@ -79,7 +79,6 @@ public class DiceRotator : MonoBehaviour
 
     public void RoomCleared()
     {
-        Debug.Log("Room cleared");
         playerStatsModifier.RandomizeStats();
         doorManager.OpenRandomClosedDoor();
         aimWeapon.RandomizeWeapon();
