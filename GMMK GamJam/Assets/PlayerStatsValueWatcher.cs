@@ -7,6 +7,7 @@ using System.Reflection;
 public class PlayerStatsValueWatcher : MonoBehaviour
 {
     public PlayerStatsModifier modifiers;
+    [SerializeField] private PlayerAimWeapon _playerAimWeapon;
 
     [Serializable]
     public class StatWatcher
@@ -21,23 +22,40 @@ public class PlayerStatsValueWatcher : MonoBehaviour
     {
         foreach (var watcher in Watchers)
         {
-            var protertyInfo = (FieldInfo)modifiers.GetType().GetMember(watcher.propertyName)[0];
-            float value = (float)protertyInfo.GetValue(modifiers);
-            watcher.text.text = "x" + value.ToString("F2");
+            if (watcher.propertyName != "gunRolled")
+            {
+                var protertyInfo = (FieldInfo)modifiers.GetType().GetMember(watcher.propertyName)[0];
+                float value = (float)protertyInfo.GetValue(modifiers);
+                watcher.text.text = "x" + value.ToString("F2");
 
-            if (value > 1)
-            {
-                watcher.text.color = Color.green;
-            }
-            else if (value < 1)
-            {
-                watcher.text.color = Color.red;
+                if (value > 1)
+                {
+                    watcher.text.color = Color.green;
+                }
+                else if (value < 1)
+                {
+                    watcher.text.color = Color.red;
+                }
+                else
+                {
+                    watcher.text.color = Color.white;
+                }
             }
             else
             {
-                watcher.text.color = Color.white;
+                switch (_playerAimWeapon.selectedBehaviour.bulletType.name)
+                {
+                    case "PistolShot":
+                        watcher.text.text = "Pistol";
+                        break;
+                    case "SniperShot":
+                        watcher.text.text = "Sniper";
+                        break;
+                    case "BombShot":
+                        watcher.text.text = "Blast Gun";
+                        break;
+                }
             }
-
         }
     }
 }
