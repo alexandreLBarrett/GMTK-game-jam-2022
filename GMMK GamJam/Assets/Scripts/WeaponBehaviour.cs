@@ -24,7 +24,7 @@ public class WeaponBehaviour : MonoBehaviour, IShootable
             return;
 
         var coneWidth = shotCount * angleBetween;
-        rotation.eulerAngles = new Vector3(rotation.eulerAngles.x, rotation.eulerAngles.y, rotation.eulerAngles.z - coneWidth / 2);
+        rotation.eulerAngles = new Vector3(rotation.eulerAngles.x, rotation.eulerAngles.y, rotation.eulerAngles.z - coneWidth/2);
 
         for (int i = 0; i < shotCount; ++i)
         {
